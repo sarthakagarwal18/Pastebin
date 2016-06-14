@@ -9,29 +9,18 @@ from snippets import views
 # will refer to '{model_name}-detail', which in this case will be
 # 'snippet-detail' and 'user-detail'
 
-# API endpoints
-urlpatterns = format_suffix_patterns([
+urlpatterns = [
     url(r'^$', views.api_root),
-    url(r'^snippets/$',
-        views.SnippetList.as_view(),
-        name='snippet-list'),
-    url(r'^snippets/(?P<pk>[0-9]+)/$',
-        views.SnippetDetail.as_view(),
-        name='snippet-detail'),
-    url(r'^snippets/(?P<pk>[0-9]+)/highlight/$',
-        views.SnippetHighlight.as_view(),
-        name='snippet-highlight'),
-    url(r'^users/$',
-        views.UserList.as_view(),
-        name='user-list'),
-    url(r'^users/(?P<pk>[0-9]+)/$',
-        views.UserDetail.as_view(),
-        name='user-detail')
-])
+    url(r'^snippets/$', views.SnippetList.as_view(), name='snippet-list'),
+    url(r'^snippets/(?P<pk>[0-9]+)/$', views.SnippetDetail.as_view(), name='snippet-detail'),
+    url(r'^snippets/(?P<pk>[0-9]+)/highlight/$', views.SnippetHighlight.as_view(), name='snippet-highlight'),
+    url(r'^users/$', views.UserList.as_view(), name='user-list'),
+    url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view(), name='user-detail'),
+]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
 
-#Adds login and logout functionality for browsable API
+#Adds login functionality
 urlpatterns += [
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
