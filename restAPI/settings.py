@@ -102,10 +102,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#
-# REST_FRAMEWORK = {
-#     'PAGE_SIZE': 10
-# }
+
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}
 
 
 # Internationalization
